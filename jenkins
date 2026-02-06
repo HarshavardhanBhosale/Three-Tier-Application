@@ -1,0 +1,16 @@
+pipeline{
+    agent any;
+    stages{
+        stage(code){
+            steps{
+            git url : "https://github.com/HarshavardhanBhosale/Three-Tier-Application.git" , branch : "main"
+            }
+        }
+        stage(build){
+            steps{
+            sh    "docker compose -f Docker-Compose-Projects/docker-compose.yml up -d"
+            }
+        }
+    }
+    
+}
